@@ -1,0 +1,19 @@
+* {
+    outline:0.1px solid;
+    box-sizing: border-box;
+}
+
+.grid { 
+    /* width:12.5px;
+    height:12.5px; */
+    display: flex;
+}
+
+.container { 
+    display: flex;
+    width: 200px;
+    height: 200px;
+    flex-wrap: wrap;
+    
+}
+
