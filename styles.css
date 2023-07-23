@@ -3,8 +3,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: black; 
+}
+
 html, body { 
-    background-color: aqua;
+  background-color: aqua;
 }
 
 .grid { 
@@ -21,17 +25,10 @@ html, body {
     background-color: white;
     
 }
-
+ .painted {
+    background: var(--main-color); 
+ }
 /* 
-.clear { 
-
-    outline:0.1px solid; */
-/* } */
-
-/* .box { 
-    display: flex;
-    padding: 20px, 20px, 20px, 20px;
-    background-color: white;
-    border-radius: 5px; 
-    flex-grow: 0;
-} */
+ .red {
+    background-color: red;
+ } */

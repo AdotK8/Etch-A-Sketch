@@ -1,12 +1,19 @@
-document.addEventListener('DOMContentLoaded', function ( ){
-});
+// let red = document.querySelector('.red');
+// let clear = document.querySelector('.clear');
+// let green = document.querySelector('.green');
+
+
 
 var board = document.querySelector('.container');
 let boardLength;
 let pixelNumber;
 let pixelSize;
 let boardLengthInt;
+let colour;
 let sizeChoice = document.querySelector('.sizeChoice')
+let clear = document.querySelector('.clear')
+let red = document.querySelector('.red')
+let green = document.querySelector('.green');
 
 
 
@@ -20,14 +27,16 @@ sizeChoice.addEventListener('click', function () {
 
 function makeGrid (pixelNumber, boardLengthInt) {
     removeBoard ();
-    
+
     for (let i = 0; i<=pixelNumber; i++ ) {
         pixelSize = 200/boardLengthInt + 'px';
-        var newDiv = document.createElement("div");
-        newDiv.classList.add('.pixel');
-        board.appendChild(newDiv);
-        newDiv.style.height = pixelSize;
-        newDiv.style.width = pixelSize;
+        var box = document.createElement("div");
+        box.classList.add('.pixel');
+        board.appendChild(box);
+        box.style.height = pixelSize;
+        box.style.width = pixelSize;
+        hover(box);
+        
     } 
 
 }
@@ -36,6 +45,44 @@ function removeBoard (){
         board.removeChild(board.firstChild);
     }
 }
+
+function hover (box) {
+    box.addEventListener('mouseenter', function (){
+        box.classList.add('painted');
+    })
+
+    clear.addEventListener('click', function (){
+        box.classList.remove('painted');
+        console.log(colour);
+    })
+}
+
+red.addEventListener('click', () => {
+    let dataColor = red.getAttribute('data-color');
+    document.querySelector(':root').style.setProperty('--main-color', dataColor)
+})
+
+green.addEventListener('click', () => {
+    let dataColor = green.getAttribute('data-color');
+    document.querySelector(':root').style.setProperty('--main-color', dataColor)
+})
+
+document.addEventListener('DOMContentLoaded', function ( ){
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -99,17 +146,6 @@ function removeBoard (){
 
 
 
-
-// const slider = document.querySelector("input");
-// const value = document.querySelector(".value");
-
-// value.textContent = slider.value;
-
-// // slider.oninput = function(userSize) {
-// //     value.textContent = this.value; 
-// //     userSize = this.value; 
-// //     console.log (userSize);
-// //     }
 
 
 
