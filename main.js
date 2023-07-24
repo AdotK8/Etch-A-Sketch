@@ -31,7 +31,7 @@ function makeGrid (pixelNumber, boardLengthInt) {
     removeBoard ();//clears previous board before making a new one 
 
     for (let i = 0; i<pixelNumber; i++ ) {//iterates through amount of divs required to create board. 
-        pixelSize = 200/boardLengthInt + 'px';//calculating width of each pizel based on board size and number of pixels. 
+        pixelSize = 600/boardLengthInt + 'px';//calculating width of each pizel based on board size and number of pixels. 
         var box = document.createElement("div");
         board.appendChild(box);//appends all  newly created divs to board. 
         box.style.height = pixelSize;
