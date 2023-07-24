@@ -29,11 +29,11 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    height: 90%;
+    height: 92%;
     background-color: crimson;
     width: 600px;
     border-radius: 50px;
-    padding-bottom: 20px;
+    padding-bottom:0px;
     padding-top:20px;
     outline: 0.1px solid black;
 }
@@ -41,8 +41,8 @@ body {
 .container { 
     outline: 0.1px solid black;
     display: flex;
-    width: 600px;
-    height: 600px;
+    min-width: 600px;
+    min-height: 600px;
     flex-wrap: wrap;
     align-items: center;
     background-color: white;
@@ -54,8 +54,6 @@ button {
     border-radius: 5px;
     margin-left: 5px;
     margin-right: 5px;
-
- 
 }
 
 .pixel {
