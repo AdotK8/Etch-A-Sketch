@@ -1,34 +1,56 @@
 * {
-    outline:0.1px solid;
     box-sizing: border-box;
+    
+    
 }
 
-:root {
-    --main-color: black; 
+html { 
+    background-color: rgba(43, 43, 43, 0.986);
+    display:flex;
+    justify-content: center;
 }
 
-html, body { 
-  background-color: aqua;
+.title {
+    color: white;
+    font-family: monospace;
 }
 
-.grid { 
-    /* width:12.5px;
-    height:12.5px; */
+.intro {
+    font-family: monospace;
+}
+
+body { 
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    background-color: crimson;
+    width: 200px;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    padding-top:5px;
+    outline: 0.1px solid black;
 }
 
 .container { 
+    outline: 0.1px solid black;
     display: flex;
     width: 200px;
     height: 200px;
     flex-wrap: wrap;
+    align-items: center;
     background-color: white;
-    
+    justify-content: center;
 }
- .painted {
-    background: var(--main-color); 
- }
-/* 
- .red {
-    background-color: red;
- } */
+
+button {
+    font-size: 8px;
+    border-radius: 5px;
+ 
+}
+
+.pixel {
+    outline: 0.1px solid black;
+}
+

@@ -1,38 +1,39 @@
-// let red = document.querySelector('.red');
-// let clear = document.querySelector('.clear');
-// let green = document.querySelector('.green');
 
-
-
-var board = document.querySelector('.container');
+var board = document.querySelector('.container'); 
 let boardLength;
 let pixelNumber;
 let pixelSize;
 let boardLengthInt;
-let colour;
+let colour;  
 let sizeChoice = document.querySelector('.sizeChoice')
 let clear = document.querySelector('.clear')
-let red = document.querySelector('.red')
-let green = document.querySelector('.green');
 
 
 
-sizeChoice.addEventListener('click', function () {
+sizeChoice.addEventListener('click', function () {//function which takes user input and passes onto make grid function to crate board. 
     boardLength = prompt("pick a size");
+    
+    if (boardLength>100) {
+        alert("please pick a size between 1 and 100");
+    } else if (boardLength == 0 ) {
+        alert("please pick a size between 1 and 100");
+    } else {
+
     boardLengthInt = parseInt(boardLength); 
     pixelNumber = boardLengthInt * boardLengthInt;
    
     makeGrid (pixelNumber, boardLengthInt);
+    }
+    
 })
 
 function makeGrid (pixelNumber, boardLengthInt) {
-    removeBoard ();
+    removeBoard ();//clears previous board before making a new one 
 
-    for (let i = 0; i<=pixelNumber; i++ ) {
-        pixelSize = 200/boardLengthInt + 'px';
+    for (let i = 0; i<pixelNumber; i++ ) {//iterates through amount of divs required to create board. 
+        pixelSize = 200/boardLengthInt + 'px';//calculating width of each pizel based on board size and number of pixels. 
         var box = document.createElement("div");
-        box.classList.add('.pixel');
-        board.appendChild(box);
+        board.appendChild(box);//appends all  newly created divs to board. 
         box.style.height = pixelSize;
         box.style.width = pixelSize;
         hover(box);
@@ -40,35 +41,52 @@ function makeGrid (pixelNumber, boardLengthInt) {
     } 
 
 }
-function removeBoard (){
+function removeBoard (){ // removes all elementd from board in the DOM
     while (board.firstChild){
-        board.removeChild(board.firstChild);
+        board.removeChild(board.firstChild); 
     }
 }
 
-function hover (box) {
-    box.addEventListener('mouseenter', function (){
-        box.classList.add('painted');
-    })
 
-    clear.addEventListener('click', function (){
-        box.classList.remove('painted');
-        console.log(colour);
+
+function hover (box) {
+    box.addEventListener('mouseenter', colourDiv) //when user hovers over board, pass to colourDiv function 
+    
+
+    clear.addEventListener('click', function (){ //paints the entire board white when user clicks on clear. 
+    box.style.backgroundColor = 'White'; 
     })
 }
 
-red.addEventListener('click', () => {
-    let dataColor = red.getAttribute('data-color');
-    document.querySelector(':root').style.setProperty('--main-color', dataColor)
-})
+function colourDiv () { //takes user's colour choice which is set in the HTML, applies this colour to the color variable 
+    if (colour == "random") {
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`; //if random is selected, each hovered div will be assigned a new background colour 
+ 
+    } else {
+        this.style.backgroundColor = 'black'; //default is black 
+    }
+}
 
-green.addEventListener('click', () => {
-    let dataColor = green.getAttribute('data-color');
-    document.querySelector(':root').style.setProperty('--main-color', dataColor)
-})
+function setColour (colourChoice) {
+    colour = colourChoice;  //function which is called in the HTML, which will set colour variable to user choice, and then to be passed through the colourDiv function 
+}
 
-document.addEventListener('DOMContentLoaded', function ( ){
-});
+
+
+
+
+// red.addEventListener('click', () => {
+//     let dataColor = red.getAttribute('data-color');
+//     document.querySelector(':root').style.setProperty('--main-color', dataColor)
+// })
+
+// green.addEventListener('click', () => {
+//     let dataColor = green.getAttribute('data-color');
+//     document.querySelector(':root').style.setProperty('--main-color', dataColor)
+// })
+
+// document.addEventListener('DOMContentLoaded', function ( ){
+// });
 
 
 

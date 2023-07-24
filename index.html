@@ -9,13 +9,18 @@
 </head>
 
 <body>
-    <div class="container"></div>
-    <button class="sizeChoice">size</button>  
-    <button class="clear">clear</button>  
-    <button class="red" data-color="red" >red</button> 
-    <button class="green" data-color="green">green</button>  
 
+    <div class="title">Etch a Sketch</div>
+    <div class="container">
+        <div class="intro">Pick a size</div>
+    </div>
 
+    <div class="buttons">
+        <button class="sizeChoice" class="button">SIZE</button>  
+        <button class="black" class="button" onclick="setColour('black')">BLACK</button>  
+        <button class="random" class="button" onclick="setColour('random')">RANDOM</button> 
+        <button class="clear" class="button">CLEAR</button> 
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
